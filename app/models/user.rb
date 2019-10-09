@@ -8,9 +8,8 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, length: { minimum: 2 }
   validates :last_name, presence: true, length: { minimum: 2 }
-  validates :email, presence: true, uniqueness: true,
-                    format: {
-                      with: /^(?:[^\s@])+@{1}(?:[^\s@.])+\.(?:[^\s@.])+$/,
-                      message: 'email is incorrect'
-                    }
+  validates :email, presence: true, uniqueness: true, format: {
+    with: /\A(?:[^\s@])+@{1}(?:[^\s@.])+\.(?:[^\s@.])+\z/,
+    message: 'email is incorrect'
+  }
 end
