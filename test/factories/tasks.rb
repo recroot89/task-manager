@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :task do
-    name { "MyString" }
-    description { "MyText" }
-    author_id { 1 }
-    assignee_id { 1 }
-    state { "MyString" }
-    expired_at { "2019-10-09" }
+    name
+    description
+    author_id { nil }
+    assignee_id { nil }
   end
 end
