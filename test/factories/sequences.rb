@@ -7,4 +7,10 @@ FactoryBot.define do
   sequence :string do |n|
     "string#{n}"
   end
+  sequence :first_name do |n|
+    "string#{n}"
+  end
+  sequence :last_name do |n|
+    "string#{n}"
+  end
 end
