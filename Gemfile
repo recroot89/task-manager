@@ -38,6 +38,8 @@ gem 'twitter-bootstrap-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'coveralls', require: false
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'rubocop'
@@ -52,6 +54,7 @@ group :development do
 end
 
 group :test do
+  gem 'simplecov', require: false
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
