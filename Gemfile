@@ -40,6 +40,7 @@ gem 'rollbar'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'coveralls', require: false
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'factory_bot_rails'
