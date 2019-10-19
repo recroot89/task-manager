@@ -32,6 +32,11 @@ gem 'slim-rails'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 
+gem 'active_model_serializers'
+gem 'kaminari'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'responders'
+
 gem 'rollbar'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
