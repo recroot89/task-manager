@@ -32,6 +32,7 @@ gem 'slim-rails'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 
+gem 'rollbar'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
