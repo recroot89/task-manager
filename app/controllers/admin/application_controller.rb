@@ -2,8 +2,8 @@
 
 class Admin::ApplicationController < ApplicationController
   include AuthHelper
-  helper_method :current_user
   before_action :authenticate_user!, :authorize
+  helper_method :current_user
 
   def authorize
     if forbidden?
