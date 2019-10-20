@@ -12,4 +12,8 @@ class User < ApplicationRecord
     with: /\A(?:[^\s@])+@{1}(?:[^\s@.])+\.(?:[^\s@.])+\z/,
     message: 'email is incorrect'
   }
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
