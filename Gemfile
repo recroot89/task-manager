@@ -32,6 +32,12 @@ gem 'slim-rails'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 
+gem 'active_model_serializers'
+gem 'kaminari'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'responders'
+
+gem 'rollbar'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -39,6 +45,7 @@ gem 'twitter-bootstrap-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'coveralls', require: false
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'factory_bot_rails'
