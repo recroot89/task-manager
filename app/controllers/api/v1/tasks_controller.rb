@@ -4,8 +4,7 @@ class Api::V1::TasksController < Api::V1::ApplicationController
   def index
     q_params = params[:q] || { s: 'id asc' }
 
-    tasks = Task.all
-                .ransack(q_params)
+    tasks = Task.ransack(q_params)
                 .result
                 .page(params[:page])
                 .per(params[:per_page])
@@ -29,7 +28,7 @@ class Api::V1::TasksController < Api::V1::ApplicationController
     if task.save
       respond_with(task, location: nil)
     else
-      render(json: { errors: task.errors }, status: :unprocessable_entity)
+      respond_with(task.errors, status: :unprocessable_entity)
     end
   end
 
