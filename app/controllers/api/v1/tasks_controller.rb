@@ -24,12 +24,8 @@ class Api::V1::TasksController < Api::V1::ApplicationController
 
   def create
     task = current_user.my_tasks.new(task_params)
-
-    if task.save
-      respond_with(task, location: nil)
-    else
-      respond_with(task.errors, status: :unprocessable_entity)
-    end
+    task.save
+    respond_with(task, location: nil)
   end
 
   def update

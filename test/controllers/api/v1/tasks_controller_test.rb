@@ -54,4 +54,18 @@ class Api::V1::TasksControllerTest < ActionController::TestCase
 
     assert !Task.where(id: task.id).exists?
   end
+
+  test 'should not post create' do
+    author = create :user
+    sign_in(author)
+    task_attributes = attributes_for(:task)
+                      .merge(author_id: nil, assignee_id: nil)
+    post :create, params: { task: task_attributes, format: :json }
+    assert_response :unprocessable_entity
+
+    data = JSON.parse(response.body)
+    created_task = Task.find_by(id: data['id'])
+
+    assert created_task.nil?
+  end
 end
