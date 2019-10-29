@@ -2,13 +2,25 @@
   "name": "task_manager",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.6.3",
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
-    "@rails/webpacker": "^4.0.7"
+    "@rails/webpacker": "^4.0.7",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-trello": "^2.2.3",
+    "webpacker-react": "^0.3.2"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2",
     "webpack-dev-server": "^3.8.1"
   }
 }
