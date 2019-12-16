@@ -32,6 +32,7 @@ gem 'slim-rails'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem 'webpacker-react', "~> 1.0.0.beta.1"
+gem 'js-routes'
 
 gem 'active_model_serializers'
 gem 'kaminari'
