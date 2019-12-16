@@ -27,12 +27,12 @@ gem 'state_machines'
 gem 'state_machines-activerecord'
 
 gem 'jquery-rails'
+gem 'js-routes'
 gem 'less-rails' # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'slim-rails'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
-gem 'webpacker-react', "~> 1.0.0.beta.1"
-gem 'js-routes'
+gem 'webpacker-react', '~> 1.0.0.beta.1'
 
 gem 'active_model_serializers'
 gem 'kaminari'
