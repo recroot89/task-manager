@@ -118,6 +118,14 @@ export default class TasksBoard extends React.Component {
     })
   }
 
+  handleDragEnd = (cardId, sourceLaneId, targetLaneId) => {
+    fetch('PUT', window.Routes.api_v1_task_path(cardId, { format: 'json' }), { task: { state: targetLaneId } })
+      .then(() => {
+        this.loadLine(sourceLaneId);
+        this.loadLine(targetLaneId);
+      });
+  }
+
   render() {
     return <div>
       <h1>Your tasks</h1>
@@ -125,6 +133,9 @@ export default class TasksBoard extends React.Component {
         onLaneScroll={this.onLaneScroll}
         customLaneHeader={<LaneHeader/>}
         cardsMeta={this.state}
+        draggable
+        laneDraggable={false}
+        handleDragEnd={this.handleDragEnd}
         data={this.getBoard()}
       />
     </div>;
