@@ -1,5 +1,5 @@
-import WebpackerReact from 'webpacker-react'
-import TaskBoard from './components/TaskBoard'
+import WebpackerReact from 'webpacker-react';
+import TaskBoard from './components/TaskBoard';
 
 WebpackerReact.setup({
   TaskBoard

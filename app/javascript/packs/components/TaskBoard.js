@@ -1,41 +1,13 @@
-import React from 'react'
-import Board from 'react-trello'
+import React from 'react';
+import Board from 'react-trello';
 import { fetch } from './Fetch';
 import LaneHeader from './LaneHeader';
-
-const data = {
-  lanes: [{
-      id: 'lane1',
-      title: 'Planned Tasks',
-      label: '2/2',
-      cards: [{
-          id: 'Card1',
-          title: 'Write Blog',
-          description: 'Can AI make memes',
-          label: '30 mins'
-        },
-        {
-          id: 'Card2',
-          title: 'Pay Rent',
-          description: 'Transfer via NEFT',
-          label: '5 mins',
-          metadata: {
-            sha: 'be312a1'
-          }
-        }
-      ]
-    },
-    {
-      id: 'lane2',
-      title: 'Completed',
-      label: '0/0',
-      cards: []
-    }
-  ]
-}
+import { Button } from 'react-bootstrap';
+import AddPopup from './AddPopup';
 
 export default class TasksBoard extends React.Component {
   state = {
+    addPopupShow: false,
     board: {
       new_task: null,
       in_development: null,
@@ -126,18 +98,34 @@ export default class TasksBoard extends React.Component {
       });
   }
 
+  handleAddShow = () => {
+    this.setState({ addPopupShow: true });
+  }
+
+  handleAddClose = ( added = false ) => {
+    this.setState({ addPopupShow: false });
+    if (added == true) {
+      this.loadLine('new_task');
+    };
+  }
+
   render() {
     return <div>
       <h1>Your tasks</h1>
+      <Button bsStyle="primary" onClick={this.handleAddShow}>Create new task</Button>
       <Board
         onLaneScroll={this.onLaneScroll}
-        customLaneHeader={<LaneHeader/>}
+        LaneHeader={<LaneHeader/>}
         cardsMeta={this.state}
         draggable
         laneDraggable={false}
         handleDragEnd={this.handleDragEnd}
         data={this.getBoard()}
       />
-    </div>;
+      <AddPopup
+        show = {this.state.addPopupShow}
+        onClose={this.handleAddClose}
+      />
+      </div>;
   }
 }
