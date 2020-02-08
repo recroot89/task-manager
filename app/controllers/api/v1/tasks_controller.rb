@@ -31,13 +31,13 @@ class Api::V1::TasksController < Api::V1::ApplicationController
   def update
     task = Task.find(params[:id])
     task.update(task_params)
-    respond_with(task, location: nil)
+    respond_with(task, location: nil, json: task)
   end
 
   def destroy
     task = Task.find(params[:id])
     task.destroy
-    respond_with(task)
+    respond_with(task, json: task)
   end
 
   private

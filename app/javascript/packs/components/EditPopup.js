@@ -52,7 +52,7 @@ export default class EditPopup extends React.Component {
       name: this.state.task.name,
       description: this.state.task.description,
       author_id: this.state.task.author.id,
-      assignee_id: this.state.task.assignee.id,
+      assignee_id: this.state.task.assignee === null ? null : this.state.task.assignee.id,
       state: this.state.task.state
     }).then( response => {
       if (response.statusText == 'OK') {

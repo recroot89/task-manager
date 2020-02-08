@@ -32,6 +32,7 @@ export default class TasksBoard extends React.Component {
       cards: (tasks) ? tasks.items.map((task) => {
         return {
           ...task,
+          id: String(task.id),
           label: task.state,
           title: task.name
         };
@@ -86,6 +87,7 @@ export default class TasksBoard extends React.Component {
       return items.map((task) => {
         return {
           ...task,
+          id: String(task.id),
           label: task.state,
           title: task.name
         };
