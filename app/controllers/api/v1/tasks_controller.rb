@@ -4,7 +4,8 @@ class Api::V1::TasksController < Api::V1::ApplicationController
   def index
     q_params = params[:q] || { s: 'id asc' }
 
-    tasks = Task.ransack(q_params)
+    tasks = Task.includes(:author, :assignee)
+                .ransack(q_params)
                 .result
                 .page(params[:page])
                 .per(params[:per_page])
@@ -31,20 +32,20 @@ class Api::V1::TasksController < Api::V1::ApplicationController
   def update
     task = Task.find(params[:id])
     task.update(task_params)
-    respond_with(task, location: nil)
+    respond_with(task, location: nil, json: task)
   end
 
   def destroy
     task = Task.find(params[:id])
     task.destroy
-    respond_with(task)
+    respond_with(task, json: task)
   end
 
   private
 
   def task_params
     params.require(:task).permit(
-      :name, :description, :author_id, :assignee_id, :state_event
+      :name, :description, :author_id, :assignee_id, :state_event, :state
     )
   end
 end
