@@ -19,8 +19,8 @@ class Session
   private
 
   def user_valid?
-    if user.blank? || !user.authenticate(password)
-      errors.add(:email, "email or password doesn't match")
-    end
+    return unless user.blank? || !user.authenticate(password)
+
+    errors.add(:email, "email or password doesn't match")
   end
 end

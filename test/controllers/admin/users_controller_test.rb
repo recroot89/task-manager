@@ -43,7 +43,7 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
   end
 
-  test "should delete destroy" do
+  test 'should delete destroy' do
     user = create(:user)
     delete admin_user_url user.id
     assert_response :redirect
