@@ -1,14 +1,8 @@
-build_tm:
+build:
 	docker-compose build
 
-bash_tm:
+bash:
 	docker-compose run web bash
-
-app-prepare:
-	docker-compose run --rm web bash -c "bundle && yarn"
-
-db-prepare:
-	docker-compose run --rm web bash -c "bin/rails db:create db:migrate db:seed"
 
 start:
 	docker-compose up
@@ -18,5 +12,17 @@ stop:
 
 test:
 	docker-compose run --rm web bash -c "bin/rails test -d"
+
+app-prepare:
+	docker-compose run --rm web bash -c "bundle && yarn"
+
+db-prepare:
+	docker-compose run --rm web bash -c "bin/rails db:create db:migrate db:seed"
+
+lint:
+	docker-compose run --rm web bash -c "bundle exec rubocop"
+
+fix:
+	docker-compose run --rm web bash -c "bundle exec rubocop --auto-correct"
 
 .PHONY: test
