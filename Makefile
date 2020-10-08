@@ -22,6 +22,9 @@ db-prepare:
 lint:
 	docker-compose run --rm web bash -c "bundle exec rubocop"
 
+jslint:
+	docker-compose run --rm web bash -c "npx eslint app/javascript"
+
 fix:
 	docker-compose run --rm web bash -c "bundle exec rubocop --auto-correct"
 
